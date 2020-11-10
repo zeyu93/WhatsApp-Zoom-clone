@@ -4,7 +4,6 @@ import { useConversation } from "../contexts/ConversationsProvider";
 
 function Conversations() {
   const { conversations, selectConversationIndex } = useConversation();
-  console.log(conversations)
   const displayNames = (array) => {
     const names = array.map((member) => member.name);
     return names.join(", ");
