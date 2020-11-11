@@ -8,6 +8,7 @@ import { SocketProvider } from "../contexts/SocketProvider";
 
 function App() {
   const [id, setId] = useLocalStorage("id", null);
+  const [name, setName] = useLocalStorage("name", null);
   const dashBoard = (
     <SocketProvider id={id}>
       <ContactsProvider>
@@ -17,7 +18,7 @@ function App() {
       </ContactsProvider>
     </SocketProvider>
   );
-  return id ? dashBoard : <Login setId={setId} />;
+  return id ? dashBoard : <Login setId={setId} setName={setName} />;
 }
 
 export default App;

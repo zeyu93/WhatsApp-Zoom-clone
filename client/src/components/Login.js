@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Accordion, Card } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Login({ setId }) {
-  const idRef = useRef();
-  const handleSubmit = e => {
+export default function Login({ setId, setName }) {
+  const nameRef = useRef();
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setId(idRef.current.value);
+    setName(nameRef.current.value);
+    generateNewID();
   };
 
   const generateNewID = () => {
@@ -15,19 +16,35 @@ export default function Login({ setId }) {
   };
   return (
     <Container
-      className='align-items-center d-flex'
+      className='d-flex flex-column justify-content-center'
       style={{ height: "100vh" }}
     >
+      <Accordion>
+        <Card>
+          <Card.Header className="text-center"> 
+            <Accordion.Toggle as={Button} variant='link' eventKey='0'>
+              READ ME!
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey='0'>
+            <Card.Body>
+              Hello! This is a WhatsApp clone built by Zeyu Liu using SocketIO
+              and React Hooks. Enter your name and press start or create a random ID.
+              Add a contact by their ID and can start a conversation with one or multiple contacts.
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
       <Form onSubmit={handleSubmit} className='w-100'>
         <Form.Group>
-          <Form.Label>Enter Your ID</Form.Label>
-          <Form.Control type='text' ref={idRef} required />
+          <Form.Label>Enter Your Name</Form.Label>
+          <Form.Control type='text' ref={nameRef} required />
         </Form.Group>
         <Button type='submit' className='mr-2'>
-          Login
+          Start
         </Button>
         <Button variant='secondary' onClick={generateNewID}>
-          Create new ID
+          Create Random ID
         </Button>
       </Form>
     </Container>
