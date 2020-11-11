@@ -1,7 +1,7 @@
-// const app = require("express")();
-// const server = require("http").createServer(app);
+const app = require("express")();
+const server = require("http").createServer(app);
 var cors = require("cors");
-var io = require("socket.io")(5000, {
+var io = require("socket.io")(server, {
   cors: {
     origin: "*",
   },
@@ -26,4 +26,4 @@ io.on("connection", (socket) => {
   });
 });
 
-// server.listen(5000);
+server.listen(5000);
