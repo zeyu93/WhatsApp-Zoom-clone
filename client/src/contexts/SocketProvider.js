@@ -9,10 +9,10 @@ export const useSocket = () => {
 
 export const SocketProvider = ({ id, children }) => {
   const [socket, setSocket] = useState();
-
+  console.log(process.env.REACT_APP_DEV_URL)
   useEffect(() => {
     const newSocket = io(
-      "http://localhost:5000",
+      process.env.REACT_APP_DEV_URL,
       {
         query: { id },
       },
