@@ -15,8 +15,7 @@ export const SocketProvider = ({ id, children }) => {
       process.env.REACT_APP_DEV_URL,
       {
         query: { id },
-      },
-      [id]
+      }
     );
     setSocket(newSocket);
 

@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import { ContactsProvider } from "../contexts/ContactsProvider";
 import { ConversationsProvider } from "../contexts/ConversationsProvider";
 import { SocketProvider } from "../contexts/SocketProvider";
+import { VideoProvider } from "../contexts/VideoProvider";
 
 function App() {
   const [id, setId] = useLocalStorage("id", null);
