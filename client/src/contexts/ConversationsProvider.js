@@ -34,7 +34,6 @@ export const ConversationsProvider = ({ children, id }) => {
   };
 
   const formattedConversations = conversations.map((convo, index) => {
-    console.log('test',convo);
     const chatMembers = convo.ids.map((id) => {
       const person = contacts.find((contact) => {
         return contact.id === id;
