@@ -10,9 +10,10 @@ ReactJS
    
 SocketIO
   -Using WebSocket to create bi-directional connection between server and client
+  -Serve as a simple server for directing the webRTC signal and traffic as well
  
  ExpressJS
   -A simple HTTP server written in Express
   
 WebRTC
-  -In the works, for video calling between users
+  -Usiing simple-peer which signals stream and enables video calling between users. 
